@@ -7,7 +7,7 @@ Created on Wed Feb  5 19:31:50 2020
 
 class Commit:
     
-    def __init__(self, details, comment=''):
+    def __init__(self, details, changes, comment=''):
         self.__id = details[0]
         self.__author = details[1]
         self.__date_time = details[2]
@@ -15,9 +15,16 @@ class Commit:
         self.__time = details[2].split(' ')[1]
         self.__comment_lines = details[3]
         self.__comment = comment
+        self.__added = changes['added']
+        self.__modified = changes['modified']
+        self.__deleted = changes['deleted']
+        
         
     def __str__(self):
-        return '"{0}","{1}","{2}","{3}","{4}","{5}"\n'.format(
+        return '"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}"\n'.format(
             self.__id, self.__author,
             self.__date, self.__time,
-            self.__comment_lines, self.__comment)
+            self.__comment_lines, self.__comment,
+            self.__added, self.__modified, self.__deleted
+            )
+
