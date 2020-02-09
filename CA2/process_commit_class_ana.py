@@ -31,11 +31,18 @@ def get_changes(data, start_index):
     
     #while - loop condition (was the last line NOT empty?)
     index = start_index
+    
     while index < len(data):
         line = data[index]
-        changes['changes'] = changes['changes'] +1
         if line == '':
             break
+        changes['changes'] = changes['changes'] + 1
+        if 'A ' in line:
+            changes['added'] =  changes['added'] + 1
+        if 'M ' in line:
+            changes['modified'] =  changes['modified'] + 1
+        if 'D ' in line:
+            changes['deleted'] =  changes['deleted'] + 1
         index = index +1
     return changes                
                 
