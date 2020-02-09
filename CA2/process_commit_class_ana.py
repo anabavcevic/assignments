@@ -24,14 +24,22 @@ def get_data():
 
 def get_changes(data, start_index):
     changes = {}
-    changes['added'] = 1
-    changes['modified'] = 2
-    changes['deleted'] = 3
-    changes['changes']= 4
-    #while - loop condition (was the last line NOT empty?)
-    #    increment the changes count
+    changes['added'] = 0
+    changes['modified'] = 0
+    changes['deleted'] = 0
+    changes['changes'] = 0
     
-    return changes
+    #while - loop condition (was the last line NOT empty?)
+    index = start_index
+    while index < len(data):
+        line = data[index]
+        changes['changes'] = changes['changes'] +1
+        if line == '':
+            break
+        index = index +1
+    return changes                
+                
+    #    increment the changes count
     
 def get_commits(data):
     sep = 72 * '-'
@@ -39,15 +47,14 @@ def get_commits(data):
     
     commits = []
     
-    while index < len(data):
-        try:
-            details = data[index + 1].split(' | ')
-            comment = 'Renamed folder to the correct name'
-            changes = get_changes(data, index+3)
-            commits.append(Commit(details, changes, comment))
-            index = data.index(sep, index + 1)
-        except:
-            index = len(data)
+    while (index < len(data) and index >= 0):
+        if index + 1 >= len(data):
+            break
+        details = data[index + 1].split(' | ')
+        comment = 'Renamed folder to the correct name'
+        changes = get_changes(data, index+3)
+        commits.append(Commit(details, changes, comment))
+        index = data.index(sep, index + 1)
     return commits
     
 def save_csv(commits):    
