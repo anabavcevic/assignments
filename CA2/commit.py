@@ -21,11 +21,12 @@ class Commit:
         self.__changes = changes['changes']
         
         
+        
     def __str__(self):
         return '"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}","{9}"\n'.format(
             self.__id, self.__author,
             self.__date, self.__time,
-            self.__comment_lines, self.__comment,
+            self.__comment_lines, self.__comment.replace("\"", "\"\""),
             self.__added, self.__modified, self.__deleted, self.__changes
             )
 

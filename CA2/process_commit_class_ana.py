@@ -43,10 +43,24 @@ def get_changes(data, start_index):
             changes['modified'] =  changes['modified'] + 1
         if 'D ' in line:
             changes['deleted'] =  changes['deleted'] + 1
-        index = index +1
-    return changes                
+        index = index + 1
+        
+    return changes                          
                 
-    #    increment the changes count
+#functio get comment
+#iterate from an index
+# lloking for an empty line
+# when get an empty line it means the next line is a comment
+ 
+def get_comment(data, start_index):
+    index = start_index
+    while index < len(data):
+        line = data[index]
+        if line == '':
+            break
+        index = index + 1
+# we take only the first line of comment
+    return data[index + 1]
     
 def get_commits(data):
     sep = 72 * '-'
@@ -58,8 +72,8 @@ def get_commits(data):
         if index + 1 >= len(data):
             break
         details = data[index + 1].split(' | ')
-        comment = 'Renamed folder to the correct name'
-        changes = get_changes(data, index+3)
+        changes = get_changes(data, index + 3)
+        comment = get_comment(data, index + 3)
         commits.append(Commit(details, changes, comment))
         index = data.index(sep, index + 1)
     return commits
