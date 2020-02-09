@@ -18,13 +18,14 @@ class Commit:
         self.__added = changes['added']
         self.__modified = changes['modified']
         self.__deleted = changes['deleted']
+        self.__changes = changes['changes']
         
         
     def __str__(self):
-        return '"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}"\n'.format(
+        return '"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}","{9}"\n'.format(
             self.__id, self.__author,
             self.__date, self.__time,
             self.__comment_lines, self.__comment,
-            self.__added, self.__modified, self.__deleted
+            self.__added, self.__modified, self.__deleted, self.__changes
             )
 

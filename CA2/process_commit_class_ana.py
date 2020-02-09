@@ -22,11 +22,15 @@ DEBUG = True
 def get_data():
     return [line.strip() for line in open('C:/Users/Ana/Documents/GitHub/assignments/CA2/data_in/dataset_CA2.log')]
 
-def get_changes():
+def get_changes(data, start_index):
     changes = {}
     changes['added'] = 1
     changes['modified'] = 2
     changes['deleted'] = 3
+    changes['changes']= 4
+    #while - loop condition (was the last line NOT empty?)
+    #    increment the changes count
+    
     return changes
     
 def get_commits(data):
@@ -39,7 +43,7 @@ def get_commits(data):
         try:
             details = data[index + 1].split(' | ')
             comment = 'Renamed folder to the correct name'
-            changes = get_changes()
+            changes = get_changes(data, index+3)
             commits.append(Commit(details, changes, comment))
             index = data.index(sep, index + 1)
         except:
@@ -48,7 +52,7 @@ def get_commits(data):
     
 def save_csv(commits):    
     csv_file = open('C:/Users/Ana/Documents/GitHub/assignments/CA2/data_out/dataset_output.csv', 'w')
-    csv_file.write('revision,name,date,time,number of lines,comment,added,modified,deleted\n')
+    csv_file.write('revision,name,date,time,number of lines,comment,added,modified,deleted,changes\n')
     for commit in commits:
         csv_file.write(str(commit))
     csv_file.close()
