@@ -5,13 +5,6 @@ Created on Sat Feb  8 18:40:04 2020
 @author: Ana
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb  3 20:26:10 2020
-
-@author: 99993
-"""
-
 # Algorithm to process revision commit to svn.
 
 from commit import Commit
@@ -80,7 +73,7 @@ def get_commits(data):
     
 def save_csv(commits):    
     csv_file = open('C:/Users/Ana/Documents/GitHub/assignments/CA2/data_out/dataset_output.csv', 'w')
-    csv_file.write('revision,name,date,time,number of lines,comment,added,modified,deleted,changes\n')
+    csv_file.write('revision,name,date,time,comment_lines,comment,added,modified,deleted,changes\n')
     for commit in commits:
         csv_file.write(str(commit))
     csv_file.close()

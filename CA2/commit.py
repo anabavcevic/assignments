@@ -13,7 +13,7 @@ class Commit:
         self.__date_time = details[2]
         self.__date = details[2].split(' ')[0]
         self.__time = details[2].split(' ')[1]
-        self.__comment_lines = details[3]
+        self.__comment_number = details[3].split(' ')[0]
         self.__comment = comment
         self.__added = changes['added']
         self.__modified = changes['modified']
@@ -26,7 +26,7 @@ class Commit:
         return '"{0}","{1}","{2}","{3}","{4}","{5}","{6}","{7}","{8}","{9}"\n'.format(
             self.__id, self.__author,
             self.__date, self.__time,
-            self.__comment_lines, self.__comment.replace("\"", "\"\""),
+            self.__comment_number, self.__comment.replace("\"", "\"\""),
             self.__added, self.__modified, self.__deleted, self.__changes
             )
 
