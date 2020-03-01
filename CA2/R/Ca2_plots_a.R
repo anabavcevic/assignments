@@ -29,7 +29,7 @@ commits_per_developer <- ca2_analiza %>% group_by(name) %>% tally()
 average_number_of_changes
 average_number_of_comment
 
-ca2_analiza$name[name == '/OU=Domain Control Validated/CN=svn.company.net'] = 'Domain'
+ca2_analiza$name[name == '/OU=Domain Control Validated/CN=svn.company.net'] = 'Ana'
 name<-(ca2_analiza$name)
 revision<-(ca2_analiza$revision)
 
