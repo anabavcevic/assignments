@@ -33,7 +33,7 @@ for txt in listVar:
     outfile.write(',')
     outfile.write('"' + escape_quotes(split_txt[1]) + '"')
     outfile.write(',')
-    outfile.write('"' + escape_quotes(split_txt[0] + ' ' + split_txt[1]) + '"')
+    outfile.write('"' + escape_quotes(split_txt[0] + ' ' + split_txt[1]) + '"') # part of code that pulles from collumns and putting in new column 
     outfile.write('\n')
 
 
