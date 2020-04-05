@@ -35,7 +35,7 @@ print(soup.title.string)
 
 def extract_island(cell):
     anchor = cell.find_all('a')
-    print(anchor[0].string, end=',')
+    print(anchor[0].string, end=',' )
 
 def extract_county(cell):
     anchor = cell.find_all('a')
@@ -62,7 +62,7 @@ def extract_population_density(cell):
     txt = str(cell.get_text())
     km2idx = txt.index('km2') -1
     txt = txt[0:(km2idx)]
-    print(txt)
+    print(txt, end=',')
     
  
 def extract_data(row):
