@@ -56,12 +56,12 @@ def extract_higest_point(cell):
     txt = str(cell.get_text())
     m2idx = txt.index('m') - 1
     txt = txt[0:m2idx]
-    print(txt)
+    print(txt, end=',')
     
 def extract_population_density(cell):
     txt = str(cell.get_text())
-    km2idx = txt.index('km2') - 1
-    txt = txt[0:km2idx]
+    km2idx = txt.index('km2') -1
+    txt = txt[0:(km2idx)]
     print(txt)
     
  
@@ -73,7 +73,7 @@ def extract_data(row):
         extract_population(cells[3])
         extract_area(cells[4])
         extract_higest_point(cells[5])
-        #extract_population_density(cells[6])
+        extract_population_density(cells[6])
         print('')
  
  
