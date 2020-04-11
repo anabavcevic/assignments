@@ -1,3 +1,5 @@
+# Git repository: https://github.com/anabavcevic/assignments/tree/master/2ndSem_CA1
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -18,13 +20,9 @@ headers = {
 
 response = requests.get('https://en.wikipedia.org/wiki/List_of_inhabited_islands_of_Croatia', headers=headers)
 
-#print(response.content)
+soup = BeautifulSoup(response.content.decode('utf-8').encode('cp1252', 'ignore'), 'html.parser')
 
-soup = BeautifulSoup(response.content, 'html.parser')
-
-#print(soup.prettify())
-
-print(soup.title.string)
+print("Island,County,Population,Area,Highest Point,Population Density")
 
 # cells = soup.find_all('td')
 
@@ -35,7 +33,8 @@ print(soup.title.string)
 
 def extract_island(cell):
     anchor = cell.find_all('a')
-    print(anchor[0].string, end=',' )
+    txt = anchor[0].string
+    print(txt, end=',' )
 
 def extract_county(cell):
     anchor = cell.find_all('a')
