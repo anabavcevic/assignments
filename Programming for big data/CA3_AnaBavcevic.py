@@ -5,7 +5,9 @@ Spyder Editor
 This is a temporary script file.
 
 """
-# GITHUB repository: 
+# GITHUB repository: https://github.com/anabavcevic/assignments/blob/master/Programming%20for%20big%20data/CA3_AnaBavcevic.py
+
+
 from functools import reduce
 import math
 import unittest
