@@ -16,10 +16,14 @@ def add():
     second_num = float(input('input second number:'))
     return first_num + second_num
 
+
+
 def sub():
     first_num = float(input('input first number:'))
     second_num = float(input('input second number:'))
     return first_num - second_num
+
+
 
 def multy():
     first_num = float(input('input first number:'))
