@@ -1,3 +1,4 @@
+##https://github.com/anabavcevic/assignments/blob/master/2ndsemCA5/CA5_Bavcevic_Ana.R
 mydata <- read.csv("C:/Users/anaba/OneDrive/Desktop/DBS/programming for BD/CA5_R/CA1Ana_2.csv")
 attach(mydata)
 str(mydata)
@@ -9,7 +10,7 @@ library(ggplot2)
 otok<-(mydata$X)
 Populacija<-(mydata$Population.Density)
 ggplot(mydata, aes(x=otok, y=Populacija)) + geom_bar(stat="identity", fill = "#36D8BE") + 
-  labs(title= "Population Density on Croatian Islands", x="islands", y="population density") +
+  labs(title= "Population Density on Croatian Islands", x="islands", y="population density") + 
   theme(axis.text.x = element_text(angle = 90)) +
   theme(axis.text.y = element_blank())
 
